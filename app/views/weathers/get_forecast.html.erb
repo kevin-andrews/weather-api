@@ -1,0 +1,11 @@
+<h1>Weather Forecast</h1>
+
+<%= form_with url: get_forecast_weathers_path, method: :get do |form| %>
+  <%= form.label :address, "Enter address:" %>
+  <%= form.text_field :address, placeholder: "95825" %>
+  <%= form.submit "Get Forecast" %>
+<% end %>
+
+<% if @forecast_data %>
+  <%= @forecast_data %>
+<% end %>
