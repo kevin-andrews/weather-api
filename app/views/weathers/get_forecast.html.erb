@@ -7,5 +7,12 @@
 <% end %>
 
 <% if @forecast_data %>
-  <%= @forecast_data %>
+  <h2>Today's Forecast:</h2>
+  Current Temperature: <%= @forecast_data.current_temp %>°F<br />
+  Today's High/Low: <%= @forecast_data.forecast_daily[0].high %>°F / <%= @forecast_data.forecast_daily[0].low %>°F<br />
+
+  <h2>Weekly Forecast:</h2>
+  <% @forecast_data.forecast_daily.drop(1).each do |day| %>
+    <%= day.date %>: High <%= day.high %>°F / Low <%= day.low %>°F<br />
+  <% end %>
 <% end %>
