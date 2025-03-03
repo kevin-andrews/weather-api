@@ -15,4 +15,7 @@
   <% @forecast_data.forecast_daily.drop(1).each do |day| %>
     <%= day.date %>: High <%= day.high %>°F / Low <%= day.low %>°F<br />
   <% end %>
+  <% if @forecast_data.from_cache %>
+    Data is from cache
+  <% end %>
 <% end %>
